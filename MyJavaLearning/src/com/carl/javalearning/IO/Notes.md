@@ -1,5 +1,5 @@
-####IO流####
-##1.4Zip文档##
+#IO流#
+##1.4 Zip文档##
 > ZipInputStream 拥有 ZipEntry
 > 通过分析ZipEntry的类型，可以执行相应的操作提取
 ```
@@ -20,7 +20,8 @@ ZipOutputStream zout = new ZipOutputStream(fout);
 	zout.close();
 }
 ```
-##1.5对象流与序列化##
+
+##1.5 对象流与序列化##
 >为了保存对象数据，首先需要打开一个*ObjectOutputStream/ObjectInputStream*
 之后使用writeObject/readObject直接写入/读出
 **希望对象使用序列化必须实现Serializable接口**
