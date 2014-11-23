@@ -59,6 +59,9 @@ public class Employee {
 		return "Employee [name=" + name + ", salary=" + salary + ", hireDay="
 				+ hireDay + "]";
 	}
-	
-	
+	public static final int NAME_SIZE = 40;
+	public static final int RECORD_SIZE = 2 * NAME_SIZE + 8 + 4 + 4 + 4;
+	public Employee(){
+		
+	}
 }

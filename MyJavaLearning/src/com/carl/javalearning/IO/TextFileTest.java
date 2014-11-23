@@ -18,6 +18,7 @@ public class TextFileTest {
 		
 		try(PrintWriter out = new PrintWriter("employee.dat","UTF-8")){
 			writeData(staff,out);
+			out.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -27,13 +28,14 @@ public class TextFileTest {
 		} 
 		try(Scanner in = new Scanner(new FileInputStream("employee.dat"),"UTF-8")){
 			Employee[] newStaff = readData(in);
+			in.close();
 			for(Employee e : newStaff) {
 				System.out.println(e);
 			}
  		} catch (FileNotFoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
-		}
+		} 
 	}
 	
 	public static void writeData(Employee[] employees,PrintWriter out){
