@@ -17,7 +17,6 @@ ZipOutputStream zout = new ZipOutputStream(fout);
 {
 	ZipEntry ze = new ZipEntry(filename);
 	zout.putNextEntry(ze);
-	
 	zout.close();
 }
 ```
