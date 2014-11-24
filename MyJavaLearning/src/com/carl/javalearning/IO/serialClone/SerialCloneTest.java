@@ -1,4 +1,4 @@
-package com.carl.javalearning.serialClone;
+package com.carl.javalearning.IO.serialClone;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

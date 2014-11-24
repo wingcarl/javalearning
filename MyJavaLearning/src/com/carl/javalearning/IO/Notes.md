@@ -34,21 +34,21 @@ ZipOutputStream zout = new ZipOutputStream(fout);
 >> Paths.get("/home","cay") --/home/cay
 basePath.resolve(workRelative) 连接成路径  
 p.relativize(r) 将产生路径q（以p为目标，对r进行相对化操作）  
->>Files的常用操作  
-```byte[] bytes = Files.readAllBytes(path) //将文件中的所有内容都读入到byte[]数组中
-```String content = new String(bytes,charset) //将bytes数组转换为字符串
-```List<String> lines = Files.readAllLines(path,charset)//将文件当作行序列读入
-```Files.write(path,content.getBytes(charSet)) //将字符串写入文件
-```Files.write(path,content.getBytes(charset),StandardOpenOption.APPEND) //向文件追加内容
->>若文件较大 则还是要使用输入输出流 Files.newInputStream(path)
-```Files.copy(src,det) Files.move(src,det)  
-```StandardCopyOption.REPLACE_EXISTING StandardCopyOption.COPY_ATTRIBUTES  StandardCopyOption.ATOMIC_MOVE
->>创建目录
-```Files.createDirectory(path); Files.createDirectories(path); Files.createFile(path);
+>>Files的常用操作   
+```byte[] bytes = Files.readAllBytes(path) //将文件中的所有内容都读入到byte[]数组中  
+```String content = new String(bytes,charset) //将bytes数组转换为字符串  
+```List<String> lines = Files.readAllLines(path,charset)//将文件当作行序列读入  
+```Files.write(path,content.getBytes(charSet)) //将字符串写入文件  
+```Files.write(path,content.getBytes(charset),StandardOpenOption.APPEND) //向文件追加内容  
+>>若文件较大 则还是要使用输入输出流 Files.newInputStream(path)  
+```Files.copy(src,det) Files.move(src,det)    
+```StandardCopyOption.REPLACE_EXISTING StandardCopyOption.COPY_ATTRIBUTES  StandardCopyOption.ATOMIC_MOVE  
+>>创建目录  
+```Files.createDirectory(path); Files.createDirectories(path); Files.createFile(path);  
 >>创建文件
-```Files.createFile(path)  Files.createTempFile(dir,prefix,suffix)
+```Files.createFile(path)  Files.createTempFile(dir,prefix,suffix)  
 >>获取文件信息
-```exists isHidden isReadable isRegularFile isDirectory...
+```exists isHidden isReadable isRegularFile isDirectory...  
 ```Files.size(path) 返回文件的字节数
 >>迭代目录中的文件
 ```try(DirectoryStream<Path> entries = Files.newDirectoryStream(dir,"*.java")){
@@ -74,11 +74,11 @@ p.relativize(r) 将产生路径q（以p为目标，对r进行相对化操作）
 			}
 		});
 	}
-}
+}  
 >>ZIP文件系统  
-```FileSystem fs = FileSystems.newFileSystem(Paths.get(zipname),null)
-```Files.copy(fs.getPath(sourceName),targetPath)
-```Files.walkFileTree(fs.getPath("/",new SimpleFileVisitor<Path>(){
+```FileSystem fs = FileSystems.newFileSystem(Paths.get(zipname),null)  
+```Files.copy(fs.getPath(sourceName),targetPath)  
+```Files.walkFileTree(fs.getPath("/",new SimpleFileVisitor<Path>(){  
 	public FileVisitResult visitFile(Path file,BasicFileAttributes attrs) throws IOException
 	{
 		System.out.println(file);
@@ -86,3 +86,7 @@ p.relativize(r) 将产生路径q（以p为目标，对r进行相对化操作）
 	}
 }
 
+##1.8 正则表达式  
+``` Pattern pattern = Pattern.cmpile(patternString);
+Macher matcher = pattern.matcher(input);
+if(macher.matches())
