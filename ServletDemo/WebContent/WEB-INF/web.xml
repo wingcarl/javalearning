@@ -45,4 +45,14 @@
     <servlet-name>ResponseDemo</servlet-name>
     <url-pattern>/ResponseDemo</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ResponseDemo1</display-name>
+    <servlet-name>ResponseDemo1</servlet-name>
+    <servlet-class>com.carl.response.ResponseDemo1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ResponseDemo1</servlet-name>
+    <url-pattern>/ResponseDemo1</url-pattern>
+  </servlet-mapping>
 </web-app>
