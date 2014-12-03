@@ -55,4 +55,14 @@
     <servlet-name>ResponseDemo1</servlet-name>
     <url-pattern>/ResponseDemo1</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CookieDemo1</display-name>
+    <servlet-name>CookieDemo1</servlet-name>
+    <servlet-class>com.carl.cookie.CookieDemo1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CookieDemo1</servlet-name>
+    <url-pattern>/CookieDemo1</url-pattern>
+  </servlet-mapping>
 </web-app>
