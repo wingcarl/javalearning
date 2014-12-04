@@ -85,4 +85,24 @@
     <servlet-name>CookieDemo3</servlet-name>
     <url-pattern>/CookieDemo3</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ShowAllBookServlet</display-name>
+    <servlet-name>ShowAllBookServlet</servlet-name>
+    <servlet-class>com.carl.cookie.app1.ShowAllBookServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowAllBookServlet</servlet-name>
+    <url-pattern>/ShowAllBookServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ShowDetailServlet</display-name>
+    <servlet-name>ShowDetailServlet</servlet-name>
+    <servlet-class>com.carl.cookie.app1.ShowDetailServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowDetailServlet</servlet-name>
+    <url-pattern>/ShowDetailServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
