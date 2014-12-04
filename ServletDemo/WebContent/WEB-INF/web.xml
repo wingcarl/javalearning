@@ -65,4 +65,24 @@
     <servlet-name>CookieDemo1</servlet-name>
     <url-pattern>/CookieDemo1</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CookieDemo2</display-name>
+    <servlet-name>CookieDemo2</servlet-name>
+    <servlet-class>com.carl.cookie.CookieDemo2</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CookieDemo2</servlet-name>
+    <url-pattern>/CookieDemo2</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CookieDemo3</display-name>
+    <servlet-name>CookieDemo3</servlet-name>
+    <servlet-class>com.carl.cookie.CookieDemo3</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CookieDemo3</servlet-name>
+    <url-pattern>/CookieDemo3</url-pattern>
+  </servlet-mapping>
 </web-app>
