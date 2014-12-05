@@ -105,4 +105,24 @@
     <servlet-name>ShowDetailServlet</servlet-name>
     <url-pattern>/ShowDetailServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SessionDemo1</display-name>
+    <servlet-name>SessionDemo1</servlet-name>
+    <servlet-class>com.carl.session.SessionDemo1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SessionDemo1</servlet-name>
+    <url-pattern>/SessionDemo1</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SessionDemo2</display-name>
+    <servlet-name>SessionDemo2</servlet-name>
+    <servlet-class>com.carl.session.SessionDemo2</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SessionDemo2</servlet-name>
+    <url-pattern>/SessionDemo2</url-pattern>
+  </servlet-mapping>
 </web-app>
