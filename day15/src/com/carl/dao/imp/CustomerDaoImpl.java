@@ -3,6 +3,7 @@ package com.carl.dao.imp;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.carl.dao.CustomerDao;
@@ -94,7 +95,6 @@ public class CustomerDaoImpl implements CustomerDao {
 			stmt.setString(8,c.getDescription());
 			stmt.setString(9,c.getId());
 			stmt.executeUpdate();
-			
 		}catch(Exception e){
 			throw new DaoException(e);
 		}finally{
@@ -104,8 +104,7 @@ public class CustomerDaoImpl implements CustomerDao {
 
 	@Override
 	public List<Customer> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		throw new AbstractMethodError("Can't invoke the abstract method");
 	}
 
 	@Override
@@ -135,6 +134,61 @@ public class CustomerDaoImpl implements CustomerDao {
 			}else{
 				return null;
 			}
+		}catch(Exception e){
+			throw new DaoException(e);
+		}finally{
+			JdbcUtil.release(rs, stmt, conn);
+		}
+	}
+
+	@Override
+	public int getTotalRecords() {
+		Connection conn = null;
+		ResultSet rs = null;
+		PreparedStatement stmt = null;
+		try{
+			conn = JdbcUtil.getConnection();
+			stmt = conn.prepareStatement("select count(*) from customer"); 
+			rs = stmt.executeQuery();
+			if(rs.next()){
+				return rs.getInt(1);
+			}else{
+				return 0;
+			}
+		}catch(Exception e){
+			throw new DaoException(e);
+		}finally{
+			JdbcUtil.release(rs, stmt, conn);
+		}
+	}
+
+	@Override
+	public List<Customer> findPageRecords(int startIndex, int pageSize) {
+		Connection conn = null;
+		ResultSet rs = null;
+		PreparedStatement stmt = null;
+		List<Customer> list = new ArrayList<Customer>();
+		try{
+			conn = JdbcUtil.getConnection();
+			stmt = conn.prepareStatement("select * from customer limit ?,?");
+			stmt.setInt(1, startIndex);
+			stmt.setInt(2, pageSize);
+			rs = stmt.executeQuery();
+			
+			while(rs.next()){
+				Customer c = new Customer();
+				c.setId(rs.getString("id"));
+				c.setName(rs.getString("name"));
+				c.setGender(rs.getString("gender"));
+				c.setCellphone(rs.getString("cellphone"));
+				c.setDescription(rs.getString("description"));
+				c.setEmail(rs.getString("email"));
+				c.setHobby(rs.getString("hobby"));
+				c.setType(rs.getString("type"));
+				c.setBirthday(rs.getDate("birthday"));
+				list.add(c);
+			}
+			return list;
 		}catch(Exception e){
 			throw new DaoException(e);
 		}finally{
