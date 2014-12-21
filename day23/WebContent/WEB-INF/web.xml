@@ -9,4 +9,22 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <filter>
+    <filter-name>AllCharacterEncodingFilter</filter-name>
+    <filter-class>com.carl.filter.AllCharacterEncodingFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>AllCharacterEncodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ManagerServlet</display-name>
+    <servlet-name>ManagerServlet</servlet-name>
+    <servlet-class>com.carl.web.controller.ManagerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ManagerServlet</servlet-name>
+    <url-pattern>/servlet/ManagerServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

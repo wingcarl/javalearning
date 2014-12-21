@@ -6,5 +6,5 @@ import com.carl.model.Category;
 
 public interface CategoryService {
 	void addCategory(Category c);
-	List<Category> findAll();
+	List<Category> findAllCategory();
 }

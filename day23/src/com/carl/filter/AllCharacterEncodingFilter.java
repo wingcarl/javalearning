@@ -1,6 +1,7 @@
 package com.carl.filter;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -9,6 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequestWrapper;
 import javax.servlet.http.HttpServletResponse;
 
 public class AllCharacterEncodingFilter implements Filter {
@@ -32,8 +34,9 @@ public class AllCharacterEncodingFilter implements Filter {
 		request.setCharacterEncoding(encode);
 		response.setCharacterEncoding(encode);
 		response.setContentType("text/html;charset="+encode);
+		MyHttpServletRequest mrequest = new MyHttpServletRequest(request);
 	
-		arg2.doFilter(request, response);
+		arg2.doFilter(mrequest, response);
 
 	}
 
@@ -43,4 +46,28 @@ public class AllCharacterEncodingFilter implements Filter {
 
 	}
 
+}
+
+class MyHttpServletRequest extends HttpServletRequestWrapper{
+
+	public MyHttpServletRequest(HttpServletRequest request) {
+		super(request);
+	}
+
+	@Override
+	public String getParameter(String name) {
+		String value =  super.getParameter(name);
+		if(value==null)
+			return value;
+		String method = super.getMethod();
+		if("get".equalsIgnoreCase(method))
+			try {
+				value = new String(value.getBytes("ISO-8859-1"),super.getCharacterEncoding());
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		return value;
+	}
+	
 }

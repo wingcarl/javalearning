@@ -18,7 +18,7 @@ public class CategoryServiceImpl implements CategoryService{
 	}
 
 	@Override
-	public List<Category> findAll() {
+	public List<Category> findAllCategory() {
 		return cDao.findAll();
 	}
 

@@ -7,6 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link href="${pageContext.request.contextPath}/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body style="text-align: center">
 <br/>
@@ -18,10 +19,10 @@
 </div>
 <div align="left" id="category" style="display:none";background-color: #CFCFCF>
 	&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/manager/addCategory.jsp">添加分类</a>&nbsp;&nbsp;
-	&nbsp;&nbsp;<a href="#">查询分类</a>&nbsp;&nbsp;
+	&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/servlet/ManagerServlet?operation=showAllCategory">查询分类</a>&nbsp;&nbsp;
 </div>
 <div align="left" id="book" style="display:none";background-color: #CFCFCF>
-	&nbsp;&nbsp;<a href="#">添加图书</a>&nbsp;&nbsp;
+	&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/servlet/ManagerServlet?operation=showAllBookUI">添加图书</a>&nbsp;&nbsp;
 	&nbsp;&nbsp;<a href="#">查询图书</a>&nbsp;&nbsp;
 </div>
 <div align="left" id="order" style="display:none";background-color: #CFCFCF>
@@ -36,3 +37,5 @@
 		divObj.style.display='block';
 	}
 </script>
+ <script src="${pageContext.request.contextPath}/dist/js/jquery-1.11.2.min.js"></script>
+ <script src="${pageContext.request.contextPath}/dist/js/bootstrap.min.js"></script>
