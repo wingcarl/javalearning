@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.carl.model.Book;
 import com.carl.model.Category;
 import com.carl.service.CategoryService;
 import com.carl.service.impl.CategoryServiceImpl;
@@ -40,6 +41,16 @@ public class ManagerServlet extends HttpServlet {
 			showAllCategory(request,response);
 		if("showAllBookUI".equals(operation))
 			showAllBookUI(request,response);
+		if("addBook".equals(operation))
+			addBook(request,response);
+	}
+
+	private void addBook(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		Book b = WebUtil.fillBean(request, Book.class);	
+		cs.addBook(b);
+		request.getRequestDispatcher("/manager/addCategory.jsp").forward(request, response);
+		
 	}
 
 	private void showAllBookUI(HttpServletRequest request,

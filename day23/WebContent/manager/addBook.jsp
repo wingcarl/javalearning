@@ -26,7 +26,7 @@
 		</div>
 		<div class="form-group">
 			<label>所属分类</label>
-			<select>
+			<select name="category_id">
 			<c:forEach items="${cs}" var="c">
 				<option value="${c.id }">${c.name }</option>
 			</c:forEach>
