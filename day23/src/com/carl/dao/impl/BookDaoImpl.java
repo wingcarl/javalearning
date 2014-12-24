@@ -16,7 +16,7 @@ public class BookDaoImpl implements BookDao {
 	@Override
 	public void addBook(Book b) {
 		try {
-			qr.update("insert into book(id,name,author,price,image,description,category_id) values(?,?,?,?,?,?,?",b.getId(),b.getName(),b.getAuthor(),b.getPrice(),b.getImage(),b.getDescription(),b.getCategory_id());
+			qr.update("insert into book(id,name,author,price,image,description,category_id) values(?,?,?,?,?,?,?)",b.getId(),b.getName(),b.getAuthor(),b.getPrice(),b.getImage(),b.getDescription(),b.getCategory_id());
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new DaoException(e);
