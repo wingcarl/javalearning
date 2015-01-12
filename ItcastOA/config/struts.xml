@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!-- 配置为开发模式 -->
+    <constant name="struts.devMode" value="true" />
+    <!-- 把action扩展名改为.do -->
+    <constant name="struts.action.extension" value="do" />
+    <!-- 把主题设为simple -->
+    <constant name="struts.ui.theme" value="simple" />
+	
+    <package name="default" namespace="/" extends="struts-default">
+    	
+    	<!-- 配置测试用的action -->
+    	<action name="Test" class="testAction">
+    		<result name="success">/test.jsp</result>
+    	</action>
+    	<action name="role_*" class="roleAction" method="{1}">
+    		<result name="list">/WEB-INF/jsp/roleAction/list.jsp</result>
+    		<result name="addUI">/WEB-INF/jsp/roleAction/addUI.jsp</result>
+    		<result name="editUI">/WEB-INF/jsp/roleAction/editUI.jsp</result>
+    		<result name="toList" type="redirectAction">role_list</result>
+    	</action>
+    </package>
+
+</struts>
