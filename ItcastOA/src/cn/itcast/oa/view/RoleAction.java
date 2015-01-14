@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import cn.itcast.oa.base.BaseAction;
 import cn.itcast.oa.domain.Role;
 import cn.itcast.oa.service.RoleService;
 
@@ -16,12 +17,8 @@ import com.opensymphony.xwork2.ModelDriven;
 
 @Controller
 @Scope("prototype")
-public class RoleAction extends ActionSupport implements ModelDriven<Role> {
+public class RoleAction extends BaseAction<Role> {
 
-	@Resource
-	private RoleService roleService;
-	
-	private Role model = new Role();
 	
 	/**
 	 * 列表页面
@@ -29,7 +26,7 @@ public class RoleAction extends ActionSupport implements ModelDriven<Role> {
 	 * @throws Exception
 	 */
 	public String list() throws Exception{
-		List<Role> roleList = roleService.list();
+		List<Role> roleList = roleService.findAll();
 		ActionContext.getContext().put("roleList", roleList);
 		return "list";
 	}
@@ -82,11 +79,5 @@ public class RoleAction extends ActionSupport implements ModelDriven<Role> {
 		roleService.update(r);
 		return "toList";
 	}
-	
-	@Override
-	public Role getModel() {
-		return model;
-	}
-	
 	
 }

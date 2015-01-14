@@ -27,7 +27,13 @@
     		<result name="list">/WEB-INF/jsp/departmentAction/list.jsp</result>
     		<result name="addUI">/WEB-INF/jsp/departmentAction/addUI.jsp</result>
     		<result name="editUI">/WEB-INF/jsp/departmentAction/editUI.jsp</result>
-    		<result name="toList" type="redirectAction">department_list</result>
+    		<result name="toList" type="redirectAction">department_list?parentId=${parentId}</result>
+    	</action>
+    	<action name="user_*" class="userAction" method="{1}">
+    		<result name="list">/WEB-INF/jsp/userAction/list.jsp</result>
+    		<result name="addUI">/WEB-INF/jsp/userAction/addUI.jsp</result>
+    		<result name="editUI">/WEB-INF/jsp/userAction/editUI.jsp</result>
+    		<result name="toList" type="redirectAction">user_list?parentId=${parentId}</result>
     	</action>
     </package>
 
