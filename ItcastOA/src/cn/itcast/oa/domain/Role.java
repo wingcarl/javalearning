@@ -19,6 +19,8 @@ public class Role {
 	private String description;
 	
 	private Set<User> users;
+	
+	private Set<Privilege> privileges;
 
 	@Id
 	@GeneratedValue
@@ -53,6 +55,15 @@ public class Role {
 
 	public void setUsers(Set<User> users) {
 		this.users = users;
+	}
+
+	@ManyToMany(mappedBy="roles")
+	public Set<Privilege> getPrivileges() {
+		return privileges;
+	}
+
+	public void setPrivileges(Set<Privilege> privileges) {
+		this.privileges = privileges;
 	}
 	
 	

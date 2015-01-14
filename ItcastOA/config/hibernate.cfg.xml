@@ -26,6 +26,7 @@
 <mapping class="cn.itcast.oa.domain.User"/>
 <mapping class="cn.itcast.oa.domain.Role"/>
 <mapping class="cn.itcast.oa.domain.Department"/>
+<mapping class="cn.itcast.oa.domain.Privilege"/>
 
 </session-factory>
 </hibernate-configuration>

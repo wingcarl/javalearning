@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 
 import cn.itcast.oa.domain.Role;
 import cn.itcast.oa.service.DepartmentService;
+import cn.itcast.oa.service.PrivilegeService;
 import cn.itcast.oa.service.RoleService;
 import cn.itcast.oa.service.UserService;
 
@@ -20,6 +21,8 @@ public class BaseAction<T> extends ActionSupport implements ModelDriven<T> {
 	protected DepartmentService departmentService;
 	@Resource
 	protected UserService userService;
+	@Resource
+	protected PrivilegeService privilegeService;
 
 	protected T model ;
 	@SuppressWarnings("unchecked")
