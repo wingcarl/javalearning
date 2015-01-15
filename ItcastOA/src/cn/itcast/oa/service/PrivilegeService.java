@@ -9,4 +9,6 @@ import cn.itcast.oa.domain.Privilege;
 public interface PrivilegeService extends DaoSupport<Privilege> {
 
 	public List<Privilege> findTopList();
+
+	public List<String> getAllPrivilegeUrls();
 }

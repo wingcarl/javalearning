@@ -20,4 +20,11 @@ public class PrivilegeServiceImpl extends DaoSupportImpl<Privilege> implements P
 				.list();
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<String> getAllPrivilegeUrls() {
+		return getSession().createQuery(//
+				"SELECT DISTINCT p.url FROM Privilege p WHERE p.url IS NOT NULL")//
+				.list();	}
+
 }

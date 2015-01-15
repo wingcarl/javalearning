@@ -25,12 +25,11 @@ public class UserServiceImpl extends DaoSupportImpl<User> implements UserService
 	@Override
 	public User findByLoginNameAndPassword(String loginName, String password) {
 		String md5 = DigestUtils.md5Hex(password);
-		User user = findByLoginName(loginName);
-		if(user.getPassword().equals(md5)){
-			return user;
-		}else{
-			return null;
-		}
+		return (User) getSession().createQuery(//
+				"FROM User u WHERE u.loginName=? AND u.password=?")//
+				.setParameter(0, loginName)//
+				.setParameter(1, md5)// 密码要使用MD5摘要
+				.uniqueResult();
 	}
 	
 	private User findByLoginName(String loginName){

@@ -39,7 +39,10 @@
     	<action name="loginout_*" class="loginoutAction" method="{1}">
     		<result name="loginUI">/WEB-INF/jsp/loginoutAction/loginUI.jsp</result>
     		<result name="logout">/WEB-INF/jsp/loginoutAction/logout.jsp</result>
-    		<result name="toHome" type="redirect">/index.jsp</result>
+    		<result name="toHome" type="redirectAction">/home_index</result>
+    	</action>
+    	<action name="home_*" class="homeAction" method="{1}">
+    		<result name="{1}">/WEB-INF/jsp/homeAction/{1}.jsp</result>
     	</action>
     </package>
 

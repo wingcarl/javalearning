@@ -27,6 +27,10 @@
 <mapping class="cn.itcast.oa.domain.Role"/>
 <mapping class="cn.itcast.oa.domain.Department"/>
 <mapping class="cn.itcast.oa.domain.Privilege"/>
-
+<!-- 声明映射文件 -->
+<!-- 	<mapping resource="cn/itcast/oa/domain/User.hbm.xml" /> -->
+<!-- 	<mapping resource="cn/itcast/oa/domain/Role.hbm.xml" /> -->
+<!-- 	<mapping resource="cn/itcast/oa/domain/Department.hbm.xml" /> -->
+<!-- 	<mapping resource="cn/itcast/oa/domain/Privilege.hbm.xml" /> -->
 </session-factory>
 </hibernate-configuration>
