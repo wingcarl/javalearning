@@ -21,5 +21,19 @@ public class UserServiceImpl extends DaoSupportImpl<User> implements UserService
 		// 保存到数据库
 		getSession().save(user);
 	}
+
+	@Override
+	public User findByLoginNameAndPassword(String loginName, String password) {
+		String md5 = DigestUtils.md5Hex(password);
+		User user = findByLoginName(loginName);
+		if(user.getPassword().equals(md5)){
+			return user;
+		}else{
+			return null;
+		}
+	}
 	
+	private User findByLoginName(String loginName){
+		return (User) getSession().createQuery("FROM User where loginName=?").setParameter(0, loginName).uniqueResult();
+	}
 }
