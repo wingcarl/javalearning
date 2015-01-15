@@ -7,7 +7,7 @@
 <head>
 <title>配置权限</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<script language="javascript" src="$${pageContext.request.contextPath}/script/jquery.js"></script>
+	<script language="javascript" src="${pageContext.request.contextPath}/script/jquery.js"></script>
     <script language="javascript" src="${pageContext.request.contextPath}/script/pageCommon.js" charset="utf-8"></script>
 <%--     <script language="javascript" src="${pageContext.request.contextPath}/script/PageUtils.js" charset="utf-8"></script> --%>
 <%-- <script language="javascript" --%>
@@ -24,6 +24,23 @@
 	<script type="text/javascript">
     	$(function(){
     		$("#tree").treeview();
+    		$("#cbSelectAll").click(function(){
+    			$('input[name=privilegeIds]').attr('checked',this.checked);
+    		});
+    		$('input[name=privilegeIds]').click(function(){
+    			
+    			$(this).siblings('ul').find('input').attr('checked',this.checked);
+    			if(this.checked){
+    			$(this).parents('li').children('input[name=privilegeIds]').attr('checked',true);
+    		}else{
+    			if($(this).parent().siblings('li').children('input:checked').size()==0){
+    				alert($(this).parent());
+    				$(this).parent().parent().siblings('input').attr('checked',false);	
+    			}
+    		}
+    		
+    		});
+    		
     	});
     </script>
 </head>
@@ -56,11 +73,11 @@
 						<tr align="LEFT" valign="MIDDLE" id="TableTitle">
 							<td width="300px" style="padding-left: 7px;">
 								<!-- 如果把全选元素的id指定为selectAll，并且有函数selectAll()，就会有错。因为有一种用法：可以直接用id引用元素 -->
-								<input type="CHECKBOX" id="cbSelectAll" onClick="selectAll(this.checked)"/>
+								<input type="checkbox" id="cbSelectAll" />
 								<label for="cbSelectAll">全选</label>
 							</td>
 						</tr>
-					</thead>
+					</thead> 
                    
 			   		<!--显示数据列表-->
 					<tbody id="TableData">
