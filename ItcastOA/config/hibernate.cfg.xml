@@ -27,6 +27,7 @@
 <mapping class="cn.itcast.oa.domain.Role"/>
 <mapping class="cn.itcast.oa.domain.Department"/>
 <mapping class="cn.itcast.oa.domain.Privilege"/>
+<mapping class="cn.itcast.oa.domain.Forum"/>
 <!-- 声明映射文件 -->
 <!-- 	<mapping resource="cn/itcast/oa/domain/User.hbm.xml" /> -->
 <!-- 	<mapping resource="cn/itcast/oa/domain/Role.hbm.xml" /> -->

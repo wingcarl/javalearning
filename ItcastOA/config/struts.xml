@@ -13,6 +13,20 @@
 	
     <package name="default" namespace="/" extends="struts-default">
     	
+    	<interceptors>
+    		<interceptor name="checkPrivilege" class="cn.itcast.oa.util.CheckPrivilegeInterceptor"></interceptor>
+    		<interceptor-stack name="myDefaultStack">
+    			<interceptor-ref name="checkPrivilege"></interceptor-ref>
+    			<interceptor-ref name="defaultStack"></interceptor-ref>
+    		</interceptor-stack>
+    	</interceptors>
+    	
+    	<default-interceptor-ref name="myDefaultStack"></default-interceptor-ref>
+    	
+    	<global-results>
+    		<result name="loginUI">/WEB-INF/jsp/loginoutAction/loginUI.jsp</result>
+    		<result name="noPrivilegeUI">/noPrivilegeUI.jsp</result>
+    	</global-results>
     	<!-- 配置测试用的action -->
     	<action name="Test" class="testAction">
     		<result name="success">/test.jsp</result>
@@ -39,10 +53,15 @@
     	<action name="loginout_*" class="loginoutAction" method="{1}">
     		<result name="loginUI">/WEB-INF/jsp/loginoutAction/loginUI.jsp</result>
     		<result name="logout">/WEB-INF/jsp/loginoutAction/logout.jsp</result>
-    		<result name="toHome" type="redirectAction">/home_index</result>
+    		<result name="toHome" type="redirectAction">home_index</result>
     	</action>
     	<action name="home_*" class="homeAction" method="{1}">
     		<result name="{1}">/WEB-INF/jsp/homeAction/{1}.jsp</result>
+    	</action>
+    	<action name="forumManage_*" class="forumAction" method="{1}">
+    		<result name="list">/WEB-INF/jsp/forumAction/list.jsp</result>
+    		<result name="saveUI">/WEB-INF/jsp/forumAction/saveUI.jsp</result>
+    		<result name="toList" type="redirectAction">forumManage_list</result>
     	</action>
     </package>
 
