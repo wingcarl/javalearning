@@ -63,6 +63,14 @@
     		<result name="saveUI">/WEB-INF/jsp/forumAction/saveUI.jsp</result>
     		<result name="toList" type="redirectAction">forumManage_list</result>
     	</action>
+    	<action name="forum_*" class="forumShowAction" method="{1}">
+    		<result name="list">/WEB-INF/jsp/forumShowAction/list.jsp</result>
+    		<result name="show">/WEB-INF/jsp/forumShowAction/show.jsp</result>
+    		
+    	</action>
+    	<action name="topic_*" class="topicAction" method="{1}">
+    		<result name="addUI">/WEB-INF/jsp/topicAction/addUI.jsp</result>    		
+    	</action>
     </package>
 
 </struts>
