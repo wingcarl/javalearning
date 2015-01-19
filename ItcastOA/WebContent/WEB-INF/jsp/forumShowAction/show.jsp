@@ -4,7 +4,7 @@
 
 <html>
 <head>
-	<title>【常见问题】中的主题列表</title>
+	<title>【${forum.name }】中的主题列表</title>
     <%@ include file="/WEB-INF/jsp/public/header.jspf" %>
 	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/style/blue/forum.css" />
 	<script type="text/javascript">

@@ -69,7 +69,14 @@
     		
     	</action>
     	<action name="topic_*" class="topicAction" method="{1}">
-    		<result name="addUI">/WEB-INF/jsp/topicAction/addUI.jsp</result>    		
+    		<result name="addUI">/WEB-INF/jsp/topicAction/addUI.jsp</result>
+    		<result name="toShow" type="redirectAction">topic_show?id=${topicId}</result>
+			<result name="show">/WEB-INF/jsp/topicAction/show.jsp</result>
+    	</action>
+    	<!-- 论坛：回复相关功能 -->
+    	<action name="reply_*" class="replyAction" method="{1}">
+    		<result name="addUI">/WEB-INF/jsp/replyAction/addUI.jsp</result>
+    		<result name="toTopicShow" type="redirectAction">topic_show?id=${topicId}</result>
     	</action>
     </package>
 

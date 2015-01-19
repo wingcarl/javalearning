@@ -8,4 +8,10 @@ import cn.itcast.oa.domain.Topic;
 public interface TopicService extends DaoSupport<Topic>{
 
 	public List<Topic> findByForumId(Long id);
+	
+	public void toElite(Long id);
+	
+	public void toNormal(Long id);
+	
+	public void toTop(Long id);
 }

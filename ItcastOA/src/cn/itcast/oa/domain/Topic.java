@@ -14,9 +14,9 @@ import javax.persistence.Table;
 @Table(name="t_topic")
 public class Topic extends Article {
 
-	private static final int TYPE_NORMAL = 0;
-	private static final int TYPE_BEST = 1;
-	private static final int TYPE_TOP = 2;
+	public static final int TYPE_NORMAL = 0;
+	public static final int TYPE_BEST = 1;
+	public static final int TYPE_TOP = 2;
 	private String title;
 	private int type;
 	private Forum forum;
